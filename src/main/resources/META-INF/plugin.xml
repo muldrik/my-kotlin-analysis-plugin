@@ -1,12 +1,23 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.muldrik.mykotlinanalysisplugin</id>
-    <name>my-kotlin-analysis-plugin</name>
+    <name>My-Kotlin-Analysis</name>
     <vendor>muldrik</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
+    <depends> com.intellij.modules.platform </depends>
+    <depends> org.jetbrains.kotlin </depends>
+
 
     <extensions defaultExtensionNs="com.intellij">
+        <localInspection
+            language="kotlin"
+            displayName="KotlinFileDetection"
+            groupPath="Kotlin"
+            enabledByDefault="true"
+            level="INFO"
+            groupKey="group.greeting"
+            implementationClass="KotlinGreetingsInspection"
+        />
         <applicationService serviceImplementation="com.github.muldrik.mykotlinanalysisplugin.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.muldrik.mykotlinanalysisplugin.services.MyProjectService"/>
     </extensions>
@@ -15,4 +26,5 @@
         <listener class="com.github.muldrik.mykotlinanalysisplugin.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+    <resource-bundle>messages.MyBundle</resource-bundle>
 </idea-plugin>
