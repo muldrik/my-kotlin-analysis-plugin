@@ -4,6 +4,7 @@
 
 <!-- Plugin description -->
 This plugin detects a kotlin file being opened and displays a greeting message
+It works for IntelliJ IDEA versions 2021.x and likely newer
 <!-- Plugin description end -->
 
 
